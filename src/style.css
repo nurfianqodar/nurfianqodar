@@ -1,7 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  --primary: 0, 0, 0;
+  --primary: 23, 23, 23;
+  --green: 0, 135, 68;
+  --blue: 0, 87, 231;
+  --red: 214, 45, 32;
+  --yellow: 255, 167, 0;
+  --background: 255, 255, 255;
 }
 
 html {

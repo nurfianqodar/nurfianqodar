@@ -9,14 +9,17 @@ import SkillsView from "../views/SkillsView.vue";
 export const routes = [
   {
     path: "/",
+    name: "Home",
     component: HomeView,
   },
   {
     path: "/projects",
+    name: "Projects",
     component: ProjectsView,
   },
   {
     path: "/skills",
+    name: "Hire Me!",
     component: SkillsView,
   },
 ];

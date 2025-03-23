@@ -1,3 +1,13 @@
+<script setup></script>
+
 <template>
-    <h1>Hello home</h1>
+  <main>
+    <h1>Hello</h1>
+  </main>
 </template>
+
+<style scoped>
+main {
+  padding: 7rem 0;
+}
+</style>
