@@ -9,5 +9,8 @@ export const useMenuStore = defineStore("menu", {
     toggle() {
       this.isOpen = !this.isOpen;
     },
+    close() {
+      this.isOpen = false;
+    },
   },
 });

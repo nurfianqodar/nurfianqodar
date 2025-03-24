@@ -27,4 +27,16 @@ import NavMenu from "./NavMenu.vue";
   box-shadow: 0px 0px 5px rgba(var(--primary), 0.2);
   padding: 0 1.5rem;
 }
+
+@media (min-width: 720px) {
+  .navbar-container {
+    padding: 0 3rem;
+  }
+}
+
+@media (min-width: 1080px) {
+  .navbar-container {
+    padding: 0 8rem;
+  }
+}
 </style>

@@ -1,6 +1,12 @@
 <template>
-  <RouterLink to="/" class="logo">
-    <h1><span class="logo-n">N</span><span class="logo-q">Q</span></h1>
+  <RouterLink title="Nurfian Qodar" to="/" class="logo">
+    <img
+      class="logo-img"
+      src="/favicon.ico"
+      alt="Nurfian Logo"
+      width="256"
+      height="256"
+    />
   </RouterLink>
 </template>
 
@@ -9,13 +15,13 @@
   font-size: 2rem;
   font-weight: 700;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.logo-n {
-  color: rgb(var(--blue));
-}
-
-.logo-q {
-  color: rgb(var(--yellow));
+.logo-img {
+  height: 2rem;
+  width: auto;
 }
 </style>
