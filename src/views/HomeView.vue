@@ -1,13 +1,27 @@
-<script setup></script>
+<script setup>
+import HeroSection from "../components/HeroSection.vue";
+</script>
 
 <template>
   <main>
-    <h1>Hello</h1>
+    <HeroSection />
   </main>
 </template>
 
 <style scoped>
 main {
-  padding: 7rem 0;
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 720px) {
+  main {
+    padding: 5rem 3rem;
+  }
+}
+
+@media (min-width: 1080px) {
+  main {
+    padding: 5rem 8rem;
+  }
 }
 </style>
