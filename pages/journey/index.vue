@@ -1,4 +1,7 @@
 <script setup lang="ts">
+definePageMeta({
+  name: "Journey",
+});
 useHead({
   title: "Journey | Nurfian Qodar",
 });
