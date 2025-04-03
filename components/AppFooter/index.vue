@@ -7,6 +7,7 @@ footer {
   display: flex;
   flex-direction: column;
   min-height: 5rem;
-  background-color: rgba(20, 24, 32, 0.226);
+  background-color: var(--text-color);
+  color: var(--bg-color);
 }
 </style>

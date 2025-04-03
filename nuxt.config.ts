@@ -4,6 +4,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/sass/root.scss"],
 
+  sitemap: {},
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -71,5 +73,5 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@pinia/nuxt"],
+  modules: ["@pinia/nuxt", "@nuxtjs/sitemap"],
 });

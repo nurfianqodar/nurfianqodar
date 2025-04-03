@@ -8,10 +8,12 @@ import NavTheme from "./NavTheme.vue";
 <template>
   <header class="container">
     <NavLogo />
-    <NavMenu />
-    <div class="buttons-container">
-      <NavTheme />
-      <NavButton />
+    <div class="right-part">
+      <NavMenu />
+      <div class="buttons-container">
+        <NavTheme />
+        <NavButton />
+      </div>
     </div>
   </header>
 </template>
@@ -24,17 +26,22 @@ import NavTheme from "./NavTheme.vue";
   padding: 0 2rem;
   justify-content: space-between;
   height: 5rem;
-  background-color: rgba($color: $light, $alpha: 0.6);
+  background-color: rgba($color: var(--bg-color), $alpha: 0.6);
   backdrop-filter: blur(5px);
   top: 0;
   left: 0;
   right: 0;
-
-  .buttons-container {
+  box-shadow: 0 0 0.1rem var(--text-color);
+  .right-part {
+    justify-content: space-between;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
+    width: max-content;
+    .buttons-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
   }
 }
 </style>

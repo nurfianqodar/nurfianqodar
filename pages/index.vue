@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import useThemeStore from "~/stores/useTheme";
+
 definePageMeta({
   name: "Home",
 });
@@ -6,10 +8,12 @@ definePageMeta({
 useHead({
   title: "Home | Nurfian Qodar",
 });
+
+const { theme } = useThemeStore();
 </script>
 
 <template>
-  <main>
+  <main class="container" :class="theme">
     <SectionHero />
     <SectionAbout />
     <SectionContact />

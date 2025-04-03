@@ -8,17 +8,17 @@
   font-size: 1rem;
   font-weight: normal;
   text-decoration: none;
-  color: $dark0;
   border: none;
   background-color: transparent;
-}
-
-html {
-  background-color: $light;
-  font-size: 16px;
 }
 
 ul,
 li {
   list-style: none;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }

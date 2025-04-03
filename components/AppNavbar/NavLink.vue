@@ -22,16 +22,19 @@ const { closeMenu } = menuState;
 <style lang="scss" scoped>
 .container {
   padding: 0.3rem 0.7rem;
-  margin: 0.4rem;
   display: flex;
   border-radius: 0.7rem;
   flex: 1;
+
+  .label {
+    color: var(--text-color);
+  }
 }
 
 .container.active {
   background-color: $accent;
   .label {
-    color: $light;
+    color: var(--bg-color);
   }
 }
 </style>

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 const menuState = useMenu();
+const { innerWidth } = useScreenSize();
 const { toggleMenu, isOpenMenu } = menuState;
 </script>
 
 <template>
-  <button class="button" @click="toggleMenu">
+  <button v-if="innerWidth < 720" class="button" @click="toggleMenu">
     <!-- Menu icon -->
     <svg
       v-if="!isOpenMenu"
@@ -41,6 +42,9 @@ const { toggleMenu, isOpenMenu } = menuState;
   display: flex;
   justify-content: center;
   align-items: center;
+  .icon-menu {
+    fill: var(--text-color);
+  }
 
   .icon-close {
     fill: red;
