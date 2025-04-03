@@ -26,16 +26,17 @@ import NavTheme from "./NavTheme.vue";
   padding: 0 2rem;
   justify-content: space-between;
   height: 5rem;
-  background-color: rgba($color: var(--bg-color), $alpha: 0.6);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   top: 0;
   left: 0;
   right: 0;
   box-shadow: 0 0 0.1rem var(--text-color);
+
   .right-part {
     justify-content: space-between;
     display: flex;
     width: max-content;
+
     .buttons-container {
       display: flex;
       align-items: center;

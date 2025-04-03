@@ -6,6 +6,8 @@ export default defineNuxtConfig({
 
   sitemap: {},
 
+  site: {},
+
   vite: {
     css: {
       preprocessorOptions: {
