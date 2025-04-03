@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-weight: normal;
+  text-decoration: none;
+  color: $dark0;
+  border: none;
+  background-color: transparent;
+}
+
+html {
+  background-color: $light;
+  font-size: 16px;
+}
+
+ul,
+li {
+  list-style: none;
+}
