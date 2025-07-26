@@ -14,7 +14,10 @@ const ActionLink: React.FC<ActionLinkProps> = ({
   external = false,
 }) => {
   return (
-    <Link to={to} className="group relative">
+    <Link
+      to={to}
+      className="group relative"
+    >
       <div className="flex gap-x-2 text-lg font-semibold">
         <span>{name}</span>
         {external && (
