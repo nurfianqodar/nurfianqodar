@@ -2,7 +2,6 @@ import Container from "~/components/ui/container";
 import type { Route } from "./+types/home";
 import ActionLink from "~/components/ui/action-link";
 import EmblemLink from "~/components/ui/emblem-link";
-import { SiGithub } from "react-icons/si";
 import socialMediaData from "~/lib/data/socialMediaData";
 import BlogEntry from "~/components/layouts/blog-entry";
 
