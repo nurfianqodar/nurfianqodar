@@ -4,6 +4,10 @@ import ActionLink from "~/components/ui/action-link";
 import EmblemLink from "~/components/ui/emblem-link";
 import socialMediaData from "~/lib/data/socialMediaData";
 import BlogEntry from "~/components/layouts/blog-entry";
+import { useEffect, useState } from "react";
+import type { BlogMetadata } from "~/lib/services/blogs/blogService";
+import blogService from "~/lib/services/blogs/blogService";
+import BlogList from "~/components/layouts/blog-list/blog-list";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -13,6 +17,12 @@ export function meta({}: Route.MetaArgs) {
 }
 
 const Home = () => {
+  const [blogs, setBlogs] = useState<BlogMetadata[] | null>(null);
+  useEffect(() => {
+    blogService.listLatestBlogs(5).then((blogs) => {
+      setBlogs(blogs);
+    });
+  }, []);
   return (
     <main className="flex flex-col">
       {/* start hero section */}
@@ -65,29 +75,7 @@ const Home = () => {
       >
         <Container>
           <h2 className="text-center text-3xl font-bold">Blog Terbaru</h2>
-          <ul className="mt-14 flex flex-col items-center">
-            <li className="flex w-full items-center justify-center">
-              <BlogEntry
-                slug=""
-                time={new Date()}
-                title="Hello World! Lorem Ipsum Dolor"
-              />
-            </li>
-            <li className="flex w-full items-center justify-center">
-              <BlogEntry
-                slug="anooo"
-                time={new Date()}
-                title="Hello World! Lorem Ipsum Dolor"
-              />
-            </li>{" "}
-            <li className="flex w-full items-center justify-center">
-              <BlogEntry
-                slug=""
-                time={new Date()}
-                title="Hello World! Lorem Ipsum Dolor"
-              />
-            </li>
-          </ul>
+          {blogs == null ? <div>Loading...</div> : <BlogList blogs={blogs} />}
         </Container>
         <div></div>
       </section>

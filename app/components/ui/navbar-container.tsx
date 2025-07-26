@@ -7,7 +7,7 @@ export interface NavbarContainerProps {
 
 const NavbarContainer: React.FC<NavbarContainerProps> = ({ children }) => {
   return (
-    <header className="fixed top-0 right-0 left-0 flex h-20 items-center justify-center">
+    <header className="fixed top-0 right-0 left-0 flex h-20 items-center justify-center backdrop-blur-lg">
       <Container>{children}</Container>
     </header>
   );

@@ -9,6 +9,9 @@ import {
   limit,
   where,
   QueryConstraint,
+  DocumentReference,
+  doc,
+  getDoc,
 } from "firebase/firestore";
 import { firestore } from "~/lib/firebase";
 
@@ -22,6 +25,7 @@ export interface BlogMetadata {
 
 export interface Blog extends BlogMetadata {
   content: string;
+  author: string;
 }
 
 type BlogSearchQuery = {
@@ -37,7 +41,15 @@ class BlogService {
   }
 
   async getBlogBySlug(slug: string): Promise<Blog> {
-    throw new Error();
+    const ref: DocumentReference = doc(this.collection, slug);
+    const snapshot = await getDoc(ref);
+
+    if (!snapshot.exists()) {
+      throw new Error(`Blog with slug "${slug}" not found`);
+    }
+
+    const data = snapshot.data() as Omit<Blog, "id">;
+    return { id: snapshot.id, ...data };
   }
 
   async searchBlogs(
