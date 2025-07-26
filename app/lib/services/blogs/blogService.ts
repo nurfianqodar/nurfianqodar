@@ -7,6 +7,8 @@ import {
   collection,
   CollectionReference,
   limit,
+  where,
+  QueryConstraint,
 } from "firebase/firestore";
 import { firestore } from "~/lib/firebase";
 
@@ -22,6 +24,12 @@ export interface Blog extends BlogMetadata {
   content: string;
 }
 
+type BlogSearchQuery = {
+  title?: string; // Optional: cari berdasarkan isi judul (manual)
+  series?: string; // Optional: exact match
+  tags?: string[]; // Optional: array-contains-any
+};
+
 class BlogService {
   private collection: CollectionReference;
   constructor(private firestore: Firestore) {
@@ -32,8 +40,43 @@ class BlogService {
     throw new Error();
   }
 
-  async searchBlogs(take: number): Promise<BlogMetadata[]> {
-    return [];
+  async searchBlogs(
+    take: number,
+    queryInput: BlogSearchQuery,
+  ): Promise<BlogMetadata[]> {
+    const constraints: QueryConstraint[] = [];
+
+    // filter by series
+    if (queryInput.series) {
+      constraints.push(where("series", "==", queryInput.series));
+    }
+
+    // filter by tags
+    if (queryInput.tags && queryInput.tags.length > 0) {
+      constraints.push(where("tags", "array-contains-any", queryInput.tags));
+    }
+
+    constraints.push(limit(take));
+
+    const q = query(this.collection, ...constraints);
+    const snapshot = await getDocs(q);
+
+    // manual filter by title
+    const blogs = snapshot.docs
+      .map((d) => ({
+        id: d.id,
+        ...(d.data() as Omit<BlogMetadata, "id">),
+      }))
+      .filter((blog) => {
+        if (queryInput.title) {
+          return blog.title
+            .toLowerCase()
+            .includes(queryInput.title.toLowerCase());
+        }
+        return true;
+      });
+
+    return blogs;
   }
 
   async listLatestBlogs(take: number): Promise<BlogMetadata[]> {
