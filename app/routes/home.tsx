@@ -4,6 +4,7 @@ import ActionLink from "~/components/ui/action-link";
 import EmblemLink from "~/components/ui/emblem-link";
 import { SiGithub } from "react-icons/si";
 import socialMediaData from "~/lib/data/socialMediaData";
+import BlogEntry from "~/components/layouts/blog-entry";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -24,7 +25,7 @@ const Home = () => {
           <h1 className="mb-3 text-2xl font-light md:text-3xl">
             Nurfian Qodar
           </h1>
-          <h2 className="mb-8 max-w-md text-4xl font-bold text-balance sm:text-5xl md:max-w-3xl md:text-6xl lg:text-7xl">
+          <h2 className="mb-8 max-w-md text-5xl font-bold text-balance md:max-w-3xl md:text-6xl lg:text-7xl">
             {"Jack of All Trades "}
             <span className="text-teal-500">{"Master of One"}</span>
           </h2>
@@ -64,7 +65,30 @@ const Home = () => {
         id="latest-blogs"
       >
         <Container>
-          <h2 className="text-center text-2xl font-semibold">Blog Terbaru</h2>
+          <h2 className="text-center text-3xl font-bold">Blog Terbaru</h2>
+          <ul className="mt-14 flex flex-col items-center">
+            <li className="flex w-full items-center justify-center">
+              <BlogEntry
+                slug=""
+                time={new Date()}
+                title="Hello World! Lorem Ipsum Dolor"
+              />
+            </li>
+            <li className="flex w-full items-center justify-center">
+              <BlogEntry
+                slug="anooo"
+                time={new Date()}
+                title="Hello World! Lorem Ipsum Dolor"
+              />
+            </li>{" "}
+            <li className="flex w-full items-center justify-center">
+              <BlogEntry
+                slug=""
+                time={new Date()}
+                title="Hello World! Lorem Ipsum Dolor"
+              />
+            </li>
+          </ul>
         </Container>
         <div></div>
       </section>
