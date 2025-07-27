@@ -5,7 +5,7 @@ import NavbarContainer from "~/components/ui/navbar-container";
 const BlogsLayout: React.FC = () => {
   return (
     <>
-      <NavbarContainer>Navbar</NavbarContainer>
+      <NavbarContainer></NavbarContainer>
       <Outlet />
       <footer className="h-32"></footer>
     </>

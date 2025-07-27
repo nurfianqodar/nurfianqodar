@@ -6,10 +6,11 @@ import blogService, {
 } from "~/lib/services/blogs/blogService";
 
 const Blogs = () => {
-  const [blogs, setBlogs] = useState<BlogMetadata[] | null>(null);
+  const [latestBlogs, setLatestBlogs] = useState<BlogMetadata[] | null>(null);
+
   useEffect(() => {
     blogService.listLatestBlogs(5).then((blogs) => {
-      setBlogs(blogs);
+      setLatestBlogs(blogs);
     });
   }, []);
   return (
@@ -19,17 +20,15 @@ const Blogs = () => {
           <h1 className="text-center text-5xl font-bold">
             Jelajahi Artikel Menginspirasi
           </h1>
-          <input
-            className="h-14 w-full max-w-md rounded-full bg-slate-100 px-8 focus:ring-4 focus:ring-teal-500 focus:ring-offset-0 focus:ring-offset-teal-500 dark:bg-slate-700"
-            type="search"
-            placeholder="Cari Judul Artikel"
-            onChange={(e) => {}}
-          />
         </div>
       </Container>
       <Container>
         <h2 className="text-center text-3xl">Blog Terbaru</h2>
-        {blogs == null ? <div>Loading...</div> : <BlogList blogs={blogs} />}
+        {latestBlogs == null ? (
+          <div>Loading...</div>
+        ) : (
+          <BlogList blogs={latestBlogs} />
+        )}
       </Container>
     </main>
   );
